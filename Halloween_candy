@@ -4,10 +4,6 @@ import seaborn as sb
 import matplotlib.pyplot as plt
 
 
- 
-# Suppressing warnings
-import warnings
-warnings.filterwarnings("ignore")
 # Loading the Halloween candy dataset as a Pandas DataFrame
 df_candy = pd.read_csv('C:/Users/candy-data.csv')
 # Viewing the first view rows of the Halloween candy DataFrame
@@ -23,7 +19,7 @@ halloween_colors = {
 # Setting the Seaborn color palette with the colors defined above
 sb.set_palette(sb.color_palette(list(halloween_colors.values())))
 
-# Setting the Seaborn style to have a dark(ish) background with grid lines
+# Setting the Seaborn style to have a dark(ish) background.
 sb.set_style('dark')
 
 
