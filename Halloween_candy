@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore")
 # Loading the Halloween candy dataset as a Pandas DataFrame
-df_candy = pd.read_csv('C:/Users/kehcc/Documents/ship 30 for 30/Data science libraies tests/candy-data.csv')
+df_candy = pd.read_csv('C:/Users/candy-data.csv')
 # Viewing the first view rows of the Halloween candy DataFrame
 df_candy.head()
 
