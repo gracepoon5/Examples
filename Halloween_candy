@@ -1,0 +1,43 @@
+# Importing the required third party Python libraries
+import pandas as pd
+import seaborn as sb
+import matplotlib.pyplot as plt
+
+
+ 
+# Suppressing warnings
+import warnings
+warnings.filterwarnings("ignore")
+# Loading the Halloween candy dataset as a Pandas DataFrame
+df_candy = pd.read_csv('C:/Users/kehcc/Documents/ship 30 for 30/Data science libraies tests/candy-data.csv')
+# Viewing the first view rows of the Halloween candy DataFrame
+df_candy.head()
+
+
+# Setting a dictionary with Halloween color hex values
+halloween_colors = {
+    'orange': '#FF9A00',
+    'black': '#000000',
+}
+
+# Setting the Seaborn color palette with the colors defined above
+sb.set_palette(sb.color_palette(list(halloween_colors.values())))
+
+# Setting the Seaborn style to have a dark(ish) background with grid lines
+sb.set_style('dark')
+
+
+# Creating a scatter plot with Seaborn comparing the price- and sugar-percentiles between chocolate and non-chocolate candies
+regressionplot = sb.lmplot(data = df_candy, x = 'sugarpercent', y = 'pricepercent', 
+                           hue = 'fruity', markers = ['x', 'o'], height = 7);
+
+# Adjusting the axes, title, and more of the visualization
+plt.title('Comparing Sugar- and Price-Percentiles Between Fruity vs. Non-Fruity Candies')
+regressionplot.set_xlabels('Sugar Percentile')
+regressionplot.set_ylabels('Price Percentile')
+regressionplot.legend.set_title('Fruity candies?')
+new_legend_labels = ['No', 'Yes']
+for text, label in zip(regressionplot._legend.texts, new_legend_labels):
+    text.set_text(label)
+sb.move_legend(regressionplot, loc = 'upper left', bbox_to_anchor = (.95, .6))
+plt.show()
