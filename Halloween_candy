@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Load the Halloween candy dataset as a Pandas DataFrame
-file_path = 'C:/Users/kehcc/Documents/ship 30 for 30/Data science libraies tests/candy-data.csv'
+file_path = 'C:/Users/candy-data.csv'
 df_candy = pd.read_csv(file_path)
 
 # Display the first few rows of the Halloween candy DataFrame
