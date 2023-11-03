@@ -22,7 +22,7 @@ sns.set_palette(list(halloween_colors.values()))
 # Set the Seaborn style to have a dark background
 sns.set_style('dark')
 
-# Create a scatter plot with Seaborn comparing the price and sugar percentiles between fruity and non-chocolate candies
+# Create a scatter plot with Seaborn comparing the price and sugar percentiles between fruity and non-fruity candies
 regression_plot = sns.lmplot(data=df_candy, x='sugarpercent', y='pricepercent', hue='fruity', markers=['x', 'o'], height=7)
 
 # Customize the visualization
