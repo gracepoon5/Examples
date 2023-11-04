@@ -13,8 +13,12 @@ x = df_coffee['Moisture']
 y = df_coffee['altitude_mean_meters']
 color = df_coffee['Total.Cup.Points']
 
+# Set the color range between 75 and 90
+color_min = 60
+color_max = 100
+
 # Create the scatter plot
-plt.scatter(x, y, c=color, cmap='jet', alpha=0.5)
+plt.scatter(x, y, c=color, cmap='jet', alpha=0.5,vmin=color_min, vmax=color_max)
 
 # Add labels and a colorbar
 plt.xlabel('Moisture')
