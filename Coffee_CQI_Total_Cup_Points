@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Read data from the CSV file into a Pandas DataFrame
+df_coffee = pd.read_csv('merged_data_cleaned.csv')
+
+# Check and handle missing values
+df_coffee.dropna(subset=['Moisture', 'altitude_mean_meters', 'Total.Cup.Points'], inplace=True)
+
+# Extract the columns you need for the scatter plot
+x = df_coffee['Moisture']
+y = df_coffee['altitude_mean_meters']
+color = df_coffee['Total.Cup.Points']
+
+# Create the scatter plot
+plt.scatter(x, y, c=color, cmap='jet', alpha=0.5)
+
+# Add labels and a colorbar
+plt.xlabel('Moisture')
+plt.ylabel('Altitude (meters)')
+plt.colorbar(label='Total Cup Points')
+
+# Display the plot
+plt.show()
