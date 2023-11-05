@@ -1,0 +1,38 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Step 1: Load the data
+data_file = "merged_data_cleaned.csv"
+coffee = pd.read_csv(data_file)
+
+# Step 2: Data Preprocessing (if needed)
+# Example: Handle missing values
+coffee.dropna(subset=['altitude_mean_meters', 'Total.Cup.Points', 'Country.of.Origin'], inplace=True)
+
+# Step 3: Create a Scatter Plot
+plt.figure(figsize=(8, 6))
+plt.scatter(x=coffee['altitude_mean_meters'], y=coffee['Total.Cup.Points'])
+
+# Step 4: Customize Scatter Plot
+plt.xlabel('Altitude (meters)')
+plt.ylabel('Total Cup Points')
+plt.title('Scatter Plot of Altitude vs. Total Cup Points')
+plt.ylim(80, 93)
+
+# Step 5: Display the Scatter Plot
+plt.show()
+
+# Step 6: Create a Pairplot with Seaborn
+# Pairplot is used to visualize pairwise relationships and distributions of variables.
+plt.figure(figsize=(10, 6))
+
+# Create the pairplot with specified columns and color by "Country.of.Origin"
+sns.pairplot(data=coffee, x_vars=["altitude_mean_meters"], y_vars=["Total.Cup.Points"], hue="Country.of.Origin", height=5)
+
+# Step 7: Customize Pairplot
+# Customize the y-axis limits
+plt.gca().set_ylim(80, 93)
+
+# Step 8: Display the Pairplot
+plt.show()
