@@ -1,0 +1,32 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Set Seaborn's default theme
+sns.set_theme()
+
+# Load the data from a CSV file
+data_file = "merged_data_cleaned.csv"
+coffee = pd.read_csv(data_file)
+
+# Create a scatter plot with specified size and aspect ratio
+sns.relplot(
+    data=coffee,
+    x='altitude_mean_meters', y='Total.Cup.Points',
+    hue='Country.of.Origin', style='Country.of.Origin', size='Cupper.Points',
+    kind='scatter',  # Specify the kind as scatter
+    height=8,        # Set the height of the figure
+    aspect=1.5       # Set the aspect ratio (width/height) of the figure
+)
+
+# Customize axis labels, titles, and legends
+plt.xlabel("Altitude (meters)")
+plt.ylabel("Total Cup Points")
+plt.title("Scatter Plot of Altitude vs. Total Cup Points")
+
+
+# Set y-axis limits
+plt.ylim(80, 93)
+
+# Display the plot
+plt.show()
