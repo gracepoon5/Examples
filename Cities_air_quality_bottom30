@@ -1,0 +1,37 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# Apply the default theme
+sns.set_theme(style="whitegrid")
+
+data_file = "cities_air_quality_water_pollution.csv"
+air_water = pd.read_csv(data_file)
+
+#lets remove all apostrophes in the dataset
+df = air_water.applymap(lambda x: x.replace('"', '') if isinstance(x, str) else x)
+
+#lets rename our columns after removing apostrophes
+df = df.rename(columns=lambda x: x.replace('"', ''))
+
+air=df.groupby(' Country')[' AirQuality'].mean().sort_values(ascending=True).head(30)
+
+df_air = pd.DataFrame(air)
+df_air.head()
+
+a =sns.relplot(data = df_air, 
+               x =' Country', 
+               y = ' AirQuality', 
+               hue =' Country', 
+               size= ' AirQuality',
+               height=8,        # Set the height of the figure
+               aspect=1.5       # Set the aspect ratio (width/height) of the figure
+              )
+a.set(xticklabels=[])
+# Customize axis labels, titles, and legends
+
+plt.ylabel("Air Quality Points")
+plt.title("Scatter Plot of Air Quality Points of Bottom 30 Countries")
+
+plt.show()
