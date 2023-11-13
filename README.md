@@ -13,8 +13,12 @@ The code harnesses Pandas for data handling and Matplotlib for the creation of t
 Create Coffee_CQI_Total_Cup_Points_by_Countries_and_Cupper_Points:
 The code presented is a Python script for creating a scatter plot using Seaborn and Matplotlib. It begins by importing the necessary libraries (Seaborn, Matplotlib, and Pandas). Then, the script loads data from a CSV file into a Pandas DataFrame. The main part of the code generates the scatter plot, showing the relationship between 'altitude_mean_meters' and 'Total.Cup.Points' while using color, marker style, and marker size to distinguish data points based on 'Country.of.Origin' and 'Cupper.Points'. The script customizes the figure's size and aspect ratio. Finally, the script uses Matplotlib to display the scatter plot. This code adheres to best practices for creating informative scatter plots. Data set: https://www.kaggle.com/datasets/volpatto/coffee-quality-database-from-cqi
 
+Cities_air_quality_top10: 
+World's Air Quality and Water Pollution Dataset on Kaggle, we now focus on countries with lower air quality points. Grouping the data by country and computing mean air quality points, we highlight the top 10 countries with the lowest averages. Leveraging Seaborn's relplot, we create a scatter plot where each country is differentiated by color, and point size corresponds to air quality. The resulting visual provides a clear insight into air quality variations among different countries, with x-axis labels removed for improved clarity. Data set: https://www.kaggle.com/datasets/victorahaji/worlds-air-quality-and-water-pollution-dataset
 
 
+Cities_air_quality_bottom30: 
+Continuing our analysis of the World's Air Quality and Water Pollution Dataset on Kaggle, we now focus on countries with lower air quality points. Grouping the data by country and computing mean air quality points, we highlight the bottom 30 countries with the lowest averages. Leveraging Seaborn's relplot, we create a scatter plot where each country is differentiated by color, and point size corresponds to air quality. The resulting visual provides a clear insight into air quality variations among different countries, with x-axis labels removed for improved clarity. Data set: https://www.kaggle.com/datasets/victorahaji/worlds-air-quality-and-water-pollution-dataset
 
 
 Physicians per thousand vs. Maternal mortality ratio: 
