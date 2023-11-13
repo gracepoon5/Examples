@@ -1,0 +1,28 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# Apply the default theme
+sns.set_theme(style="whitegrid", font_scale=2)
+
+data_file = "world-data-2023.csv"
+world_data = pd.read_csv(data_file)
+
+scatter_plot = sns.relplot(data = world_data, 
+               x ='Physicians per thousand', 
+               y = 'Maternal mortality ratio', 
+               size = 'Maternal mortality ratio',
+               sizes=(200, 2000),
+               hue ='Country',
+               height=20,        # Set the height of the figure
+               aspect=1.5       # Set the aspect ratio (width/height) of the figure
+              )
+
+# Set plot labels and title
+scatter_plot.set_axis_labels("Physicians per thousand", "Maternal mortality ratio", labelpad=50)
+plt.title("Scatter Plot of Physicians per thousand vs. Maternal mortality ratio")
+
+# Customize legend
+sns.move_legend(scatter_plot, "upper left", bbox_to_anchor=(0.9, 1), ncol=5, frameon=False)
+plt.show()
