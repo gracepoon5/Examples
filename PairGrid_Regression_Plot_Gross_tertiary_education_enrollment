@@ -1,0 +1,23 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+# Apply the default theme
+sns.set_theme(style="whitegrid", font_scale=1)
+
+data_file = "world-data-2023.csv"
+world_data = pd.read_csv(data_file)
+
+g = sns.PairGrid(world_data, y_vars=["Gross tertiary education enrollment"], x_vars=["Minimum wage", "Life expectancy"], height=4)
+g.map (sns.regplot, 
+            ci=99, marker='x', #confidence interval 99%
+            color=".5", 
+            line_kws=dict(color="b"),
+            robust=True)
+
+# Set plot labels and title
+g.fig.subplots_adjust(top=0.9)
+g.fig.suptitle('Linear Regression Plot')
+
+plt.show()
