@@ -1,0 +1,22 @@
+import seaborn as sns
+import pandas as pd
+import matplotlib as plt
+
+sns.set_theme(style="whitegrid", font_scale=2)
+data_file = "winequality-red.csv"
+wine = pd.read_csv(data_file)
+
+#Relation plot - scatter
+sns.relplot(data=wine, x="fixed acidity", y= "density", hue="alcohol")
+
+#Distrubution plot - histogram
+sns.displot(data=wine, x ="density")
+
+#ParGrid
+x_vars = ["fixed acidity", "density"]
+y_vars = ["density"]
+g= sns.PairGrid (wine, x_vars = x_vars, y_vars = y_vars, height=4, hue ="alcohol")
+g.map_diag(sns.histplot, color=".3")
+g.map_offdiag(sns.scatterplot)
+g.add_legend()
+plt.show()
