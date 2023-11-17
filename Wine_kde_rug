@@ -1,0 +1,13 @@
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+
+sns.set_theme(style="whitegrid", font_scale=2)
+data_file = "winequality-red.csv"
+wine = pd.read_csv(data_file)
+
+# seaborn combines the kde and rug plot together 
+a = sns.displot(data=wine, x="density", y="residual sugar", hue="quality", kind="kde", rug=True)
+sns.move_legend(a, "upper left", bbox_to_anchor=(0.7, 1))  # moving the legend outside of the axes
+
+plt.show()  # This line display the plot
