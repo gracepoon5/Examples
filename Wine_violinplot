@@ -1,0 +1,22 @@
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+
+sns.set_theme(style="whitegrid", font_scale=2.5)
+data_file = "winequality-red.csv"
+wine = pd.read_csv(data_file)
+
+
+y_vars = [ "density", "sulphates", "alcohol"]
+x_vars = "quality"
+fig, ax = plt.subplots(1,len(y_vars),figsize=(60, 16))
+i = 0
+for y in y_vars:
+    # catagory plots
+    x = x_vars
+    g = sns.violinplot(data=wine, x=x_vars, y=y, hue="quality", ax=ax[i])
+    g.set(xlabel= x.title(), ylabel =y.title())
+    ax[i].set_title(f"{x.title()} vs {y.title()}")
+    sns.move_legend(g, "upper left", bbox_to_anchor=(0.5, 1), ncol=3, frameon=False, title=None)  # adjusting the location of the legend 
+    i += 1
+plt.show()
