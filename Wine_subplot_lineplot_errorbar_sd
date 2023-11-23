@@ -1,0 +1,21 @@
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+
+sns.set_theme(style="whitegrid", font_scale=2.5)
+data_file = "winequality-red.csv"
+wine = pd.read_csv(data_file)
+
+
+y_vars = [ "volatile acidity", "sulphates", "alcohol"]
+x_vars = "quality"
+fig, ax = plt.subplots(1,len(y_vars),figsize=(60, 16))
+i = 0
+for y in y_vars:
+    # catagory plots
+    x = x_vars
+    g = sns.lineplot(data=wine, x=x_vars, y=y, ax=ax[i], color='blue', errorbar=('sd'))
+    g.set(xlabel= x.title(), ylabel =y.title())
+    ax[i].set_title(f"{x.title()} vs {y.title()}")
+    i += 1
+plt.show()
