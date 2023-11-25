@@ -1,0 +1,11 @@
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+sns.set_theme(style="whitegrid", font_scale=.6)
+data_file = "winequality-red.csv"
+wine = pd.read_csv(data_file)
+
+wine_mx = wine.corr()
+sns.heatmap(wine_mx, annot= True, cmap="PuRd")
