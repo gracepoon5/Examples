@@ -9,3 +9,4 @@ wine = pd.read_csv(data_file)
 
 wine_mx = wine.corr()
 sns.heatmap(wine_mx, annot= True, cmap="PuRd")
+sns.clustermap(wine_mx, cmap ="PuRd", standard_scale = 2)
