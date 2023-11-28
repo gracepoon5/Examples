@@ -1,0 +1,28 @@
+import pygal
+from pygal.style import DarkStyle
+
+# Mock data for demonstration purposes
+categories = ['Innovation', 'Usability', 'Scalability', 'Design', 'Performance']
+products = ['Product A', 'Product B', 'Product C']
+data = {
+    'Product A': [8, 9, 7, 8, 9],
+    'Product B': [7, 8, 9, 6, 8],
+    'Product C': [9, 7, 8, 9, 7],
+}
+
+# Create a radar chart with Pygal
+radar_chart = pygal.Radar(style=DarkStyle)
+radar_chart.title = 'Product Evaluation Radar Chart'
+radar_chart.x_labels = categories
+
+# Add data sets to the chart with custom colors
+radar_chart.add(products[0], data[products[0]], stroke_color='#1f77b4', fill_color='#1f77b4', dot_color='#1f77b4')
+radar_chart.add(products[1], data[products[1]], stroke_color='#ff7f0e', fill_color='#ff7f0e', dot_color='#ff7f0e')
+radar_chart.add(products[2], data[products[2]], stroke_color='#2ca02c', fill_color='#2ca02c', dot_color='#2ca02c')
+
+# Enable tooltips to display values on hover
+radar_chart.tooltip_font_size = 14
+radar_chart.show_legend = True
+
+# Save the chart to an SVG file
+radar_chart.render_to_file('advanced_pygal_radar_chart.svg')
